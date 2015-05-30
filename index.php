@@ -11,7 +11,7 @@
           if ( has_post_thumbnail() ) {
             the_post_thumbnail('thumb-200');
           } else { ?>
-            <img src="<?php bloginfo('template_directory'); ?>/images/dada-fallback200.jpg" alt="<?php the_title(); ?>" class="fallback" />
+            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/dada-fallback200.jpg" alt="<?php the_title(); ?>" class="fallback" />
           <?php } ?>
         </a>
       </div>
