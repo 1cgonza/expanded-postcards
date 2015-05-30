@@ -1,0 +1,259 @@
+/******************************************************************
+Theme Name: Expanded Postcards
+Description: 3D WebGL gallery created for displaying the work of students taking the Expanded Animation class though by Kathy Smith at DADA - USC.
+Author: Juan Camilo Gonzalez
+Author URI: http://juancgonzalez.com/
+Version: 0.1
+Tags: 3D, gallery, portfolio, webgl, threejs
+******************************************************************/
+
+html, body, #container {
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin:0;
+  padding:0;
+  min-width: 980px;
+  overflow:hidden;
+  background: #b5bdc8; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  #b5bdc8 0%, #828c95 36%, #28343b 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#b5bdc8), color-stop(36%,#828c95), color-stop(100%,#28343b)); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+}
+
+#bottom {
+  height: 40px;
+  background-color: black;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+
+.legend{
+  float: left;
+  margin: .5em 1em;
+}
+
+.legend .legend-item {
+  font-size: 0.9em;
+  margin-right: 2em;
+}
+
+.legend-item::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}
+
+.ref-video::before {
+  background-image: url(images/blue-disc.png);
+}
+
+.ref-image::before {
+  background-image: url(images/green-disc.png);
+}
+
+.ref-audio::before {
+  background-image: url(images/pink-disc.png);
+}
+
+.nav {
+  float: right;
+  margin: 5px;
+}
+
+.nav a, .nav a:visited {
+  color: white;
+  float: left;
+  margin-right: 1em;
+}
+
+.nav a:hover, .nav a:focus {
+  color: yellow;
+}
+
+a, a:visited {
+  font-size: 1.2em;
+  color: yellow;
+  text-decoration:none;
+  outline: none;
+  -moz-outline-style: none;
+}
+
+a:hover, a:focus {
+  color: #CCC;
+}
+
+.postcard a, .postcard a:visited{
+  width: 200px;
+  height: 200px;
+  -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 8px solid;
+    -webkit-transition: all 0.12s ease-out;
+  -moz-transition: all 0.12s ease-out;
+  -o-transition: all 0.12s ease-out;
+  overflow: hidden;
+  display: block;
+}
+
+.postcard a:hover, .postcard a:focus {
+  -webkit-border-radius: 30% 0 30%;
+    -moz-border-radius: 30% 0 30%;
+    border-radius: 30% 0 30%;
+}
+
+.format-video a, .format-video a:visited {
+  color: #0099cc;
+}
+
+.format-image a, .format-image a:visited {
+  color: #66cc33;
+}
+
+.format-audio a, .format-audio a:visited {
+  color: #ff33cc;
+}
+
+#post-content {
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  display: none;
+  overflow-y:auto;
+}
+
+.loading {
+  height: 128px;
+  width: 128px;
+  background: url(images/loader.gif) no-repeat center center;
+  position: absolute;
+  display: block;
+}
+
+#inner-content{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 5em;
+}
+
+.info{
+  float: left;
+  width: 18%;
+  padding:1%;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  -webkit-border-radius: 0 30px;
+    -moz-border-radius: 0 30px;
+    border-radius: 0 30px;
+}
+
+.info h2 {
+  font-weight: 300;
+  font-size: 2em;
+  color: yellow;
+}
+
+.media {
+  width: 70%;
+  float: left;
+  margin-left: 2%;
+}
+
+#inner-content iframe {
+  width: 100%;
+}
+
+#inner-content img {
+  max-width: 100%;
+}
+
+#info-page {
+  width: 50%;
+  margin: 0 auto;
+  color: white;
+}
+
+#info-page h2 {
+  font-weight: 300;
+  font-size: 2.2em;
+  margin-bottom: 0;
+}
+
+#info-page ul{
+  text-align: center;
+}
+
+#info-page img{
+  vertical-align: middle;
+  margin-right: 1em;
+}
+
+#info-page li {
+  display: inline-block;
+  margin-left: 2em;
+}
+
+#info-page img {
+  width: auto!important;
+}
+
+.close {
+  display: block;
+  cursor: pointer;
+  color: white;
+  font-size: 3em;
+  text-align: right;
+  padding: 0.5em;
+}
+
+#gallery {
+  display:none;
+}
+
+#container {
+  top:0;
+  width:100%;
+  height:100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.postcard {
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+}
+
+h1.caption {
+  display: none;
+  width: 200%;
+  color: black;
+  font-weight: normal;
+  background-color: white;
+  padding: 0.5em;
+  text-align: center;
+  -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+  position: absolute;
+  margin-left: -50%;
+  bottom: 150px;
+}
