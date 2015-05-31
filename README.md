@@ -1,5 +1,5 @@
 # Expanded Postcards
-A WordPress theme that displays the posts on an interactive 3D space.  
+A WordPress theme that displays the posts on an interactive 3D space. Visit at: http://www.juancgonzalez.com/expanded
   
 <a href="http://juancgonzalez.com/expanded/"><img src="https://raw.githubusercontent.com/1cgonza/expanded-postcards/master/screenshot.png"></a>
   
